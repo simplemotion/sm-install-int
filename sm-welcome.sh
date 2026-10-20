@@ -25,7 +25,7 @@
 #                      ~/.local/bin/pwsh-7 for the M365/Exchange admin
 #                      scripts; auto-install cosign via direct
 #                      sigstore/cosign release download + SHA256-verify into
-#                      ~/.local/bin/cosign (no sudo, no Homebrew); then run
+#                      ~/.local/bin/cosign (no sudo, no package manager); then run
 #                      `cosign initialize` against GitHub's Sigstore TUF so
 #                      cosign can verify GitHub-issued attestations natively.
 #                      Missing git/curl are flagged but not auto-installed
@@ -210,8 +210,8 @@ detect_state() {
 GIT_STATE=$(detect_state git)
 CURL_STATE=$(detect_state curl)
 # cosign is a SimpleMotion-managed tool — we deliberately ignore any
-# system-wide cosign (Homebrew / apt / dnf) and use only the one we
-# install ourselves at ~/.local/bin/cosign.
+# system-wide cosign and use only the one we install ourselves at
+# ~/.local/bin/cosign.
 if [[ -x "$HOME/.local/bin/cosign" ]]; then
     COSIGN_STATE="present ($HOME/.local/bin/cosign)"
 else

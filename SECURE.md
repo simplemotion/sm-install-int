@@ -53,7 +53,7 @@ The bundle is offline-verifiable: the Sigstore TUF root and Fulcio cert chain tr
 
 ### Recipe
 
-Requires `gh` ≥ 2.55 (`brew install gh`, or fetch a static build from <https://github.com/cli/cli/releases>).
+Requires `gh` ≥ 2.55 (fetch a static build from <https://github.com/cli/cli/releases>).
 
 ```bash
 # 1. Pick channel + product + platform.
@@ -106,7 +106,7 @@ A successful `gh attestation verify` proves:
 | `cosign signature not found` | Bundle file is corrupt; re-download. |
 | `certificate identity does not match` | You're verifying against the wrong `--repo`. Use the value listed for your product. |
 | `transparency log entry not found` | Bundle is too old (>3 months from a retired Rekor shard) or never made it to Rekor. File an issue. |
-| `gh: command not found` | Install `gh` first: `brew install gh` on macOS, or download from <https://github.com/cli/cli/releases>. |
+| `gh: command not found` | Install `gh` first: download it from <https://github.com/cli/cli/releases>. |
 | `error creating Sigstore verifier` | gh's TUF cache is corrupt. Fix: `rm -rf ~/.sigstore` and retry. |
 
 ## Reporting issues
