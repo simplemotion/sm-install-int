@@ -19,9 +19,9 @@
 #                            SM_WELCOME_CONFIRM=1 restores the Y/n gate
 #                            (SM_WELCOME_ASSUME_YES=1 overrides it back off).
 #   find_cosign              Probe ~/.local/bin/cosign and nothing else
-#                            (100%-local toolchain rule — system-wide
-#                            cosigns from Homebrew / apt / dnf are
-#                            deliberately ignored). Sets COSIGN_BIN.
+#                            (100%-local toolchain rule — a system-wide
+#                            cosign is deliberately ignored). Sets
+#                            COSIGN_BIN.
 #   ensure_cosign            Download cosign-{darwin,linux}-{amd64,arm64}
 #                            from sigstore/cosign /releases/latest/,
 #                            SHA256-verify against cosign_checksums.txt,
@@ -422,7 +422,7 @@ find_pwsh() {
 # PowerShell/PowerShell GitHub release tarball, SHA256-verified against the
 # API's per-asset digest, and symlink ~/.local/bin/pwsh at it. The Unix
 # parallel to sm-welcome.ps1's Install-PwshPortable. Self-contained, per-user,
-# no Homebrew/apt/sudo. pwsh is the shell the M365 / Exchange Online admin
+# no package manager and no sudo. pwsh is the shell the M365 / Exchange Online admin
 # scripts (sm-set-*.ps1) target; the SimpleMotion toolchain prefers pwsh 7
 # over the in-box shells. Best-effort: degrades to a notice on any failure.
 # shellcheck disable=SC2034  # PWSH_BIN is this function's OUTPUT, read by callers
